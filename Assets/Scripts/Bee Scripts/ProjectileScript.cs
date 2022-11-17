@@ -20,7 +20,14 @@ public class ProjectileScript : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag != "Player") Destroy(gameObject);
+        Debug.Log("collisiones");
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Debug.Log("Here");
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.tag != "Player") Destroy(gameObject);
 
     }
 }

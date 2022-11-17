@@ -32,6 +32,8 @@ public class ThirdPersonMovement : MonoBehaviour
         Vector3 direction = new Vector3(horizontal, 0.0f, vertical).normalized;
         Vector3 moveDirection = new Vector3(0.0f, 0.0f, 0.0f);
 
+        transform.rotation = cam.rotation;
+
         if (direction.magnitude >= 0.1f)
         {
             float tangetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
@@ -57,6 +59,5 @@ public class ThirdPersonMovement : MonoBehaviour
         Vector3 fallVector = new Vector3(0.0f, verticalVelocity, 0.0f);
         controller.Move((moveDirection * speed + fallVector) * Time.deltaTime);
 
-        Debug.Log(controller.isGrounded);
     }
 }
