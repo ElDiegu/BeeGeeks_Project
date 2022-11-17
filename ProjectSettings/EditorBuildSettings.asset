@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ExitScreen.unity
     guid: fe61dd2fd5adb0d489b2f0b5a638a4e9
+  - enabled: 1
+    path: Assets/Scenes/BeeMovement.unity
+    guid: cc29d4eff50d7c44fb67435b345378e0
   m_configObjects: {}
