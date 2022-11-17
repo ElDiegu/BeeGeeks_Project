@@ -21,6 +21,9 @@ public class ShootingScript : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0)) gameObject.GetComponent<ShootingScript>().Shoot();
+        if (!GameManager.Instance.GamePaused)
+        {
+            if (Input.GetMouseButtonDown(0)) gameObject.GetComponent<ShootingScript>().Shoot();
+        }
     }
 }

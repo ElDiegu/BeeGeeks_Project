@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.49056602, g: 0.4743681, b: 0.4743681, a: 0.392}
+  m_Color: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 3415476207445318965}
   - component: {fileID: 3415476207445318966}
   - component: {fileID: 3415476207445318967}
-  - component: {fileID: 3415476207445318968}
+  - component: {fileID: 5839604226096817873}
   m_Layer: 5
   m_Name: PauseButton
   m_TagString: Untagged
@@ -534,9 +534,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3415476207445318968}
-        m_TargetAssemblyTypeName: SetScreenActive, Assembly-CSharp
-        m_MethodName: ActivateScreen
+      - m_Target: {fileID: 5839604226096817873}
+        m_TargetAssemblyTypeName: SetPauseScreenActive, Assembly-CSharp
+        m_MethodName: PauseGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -546,7 +546,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3415476207445318968
+--- !u!114 &5839604226096817873
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -555,10 +555,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3415476207445318970}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efbedaf47a4177e44af037cac514115b, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d69b73f655037744b2fccc57afdf5f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _screen: {fileID: 2868247018643456042}
+  _pauseMenu: {fileID: 2868247018643456042}
 --- !u!1 &3415476207770785218
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,7 +571,7 @@ GameObject:
   - component: {fileID: 3415476207770785245}
   - component: {fileID: 3415476207770785246}
   - component: {fileID: 3415476207770785247}
-  - component: {fileID: 3415476207770785216}
+  - component: {fileID: 8565133800085165349}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -681,9 +681,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3415476207770785216}
-        m_TargetAssemblyTypeName: SetScreenActive, Assembly-CSharp
-        m_MethodName: DeactivateScreen
+      - m_Target: {fileID: 8565133800085165349}
+        m_TargetAssemblyTypeName: SetPauseScreenActive, Assembly-CSharp
+        m_MethodName: UnpauseGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -693,7 +693,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3415476207770785216
+--- !u!114 &8565133800085165349
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -702,10 +702,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3415476207770785218}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efbedaf47a4177e44af037cac514115b, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d69b73f655037744b2fccc57afdf5f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _screen: {fileID: 2868247018643456042}
+  _pauseMenu: {fileID: 2868247018643456042}
 --- !u!1 &3415476207855628010
 GameObject:
   m_ObjectHideFlags: 0
