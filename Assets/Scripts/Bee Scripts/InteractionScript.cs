@@ -60,12 +60,15 @@ public class InteractionScript : MonoBehaviour
 
     public void Update()
     {
-        if(Input.GetKeyUp(KeyCode.E)) FindInteractableObject();
-
-        if (picking)
+        if (!GameManager.Instance.GamePaused)
         {
-            pickedItem.transform.position = pickPosition.position;
-            pickedItem.transform.rotation = pickPosition.rotation;
+            if (Input.GetKeyUp(KeyCode.E)) FindInteractableObject();
+
+            if (picking)
+            {
+                pickedItem.transform.position = pickPosition.position;
+                pickedItem.transform.rotation = pickPosition.rotation;
+            }
         }
     }
 
@@ -79,7 +82,7 @@ public class InteractionScript : MonoBehaviour
             }
             else
             {
-                gameObject.GetComponent<BeeUpdateUI>().UpdateHoneySprite(honeyLevel);
+
                 if (honeyLevel+2 <= 10)
                 {
                     honeyLevel += 2;
@@ -88,7 +91,9 @@ public class InteractionScript : MonoBehaviour
                 {
                     honeyLevel = 10;
                 }
-                
+
+                gameObject.GetComponent<BeeUpdateUI>().UpdateHoneySprite(honeyLevel);
+
                 Destroy(other.gameObject);
             }
 
