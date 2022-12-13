@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/ExitScreen.unity
     guid: fe61dd2fd5adb0d489b2f0b5a638a4e9
   - enabled: 1
-    path: Assets/Scenes/BeeMovementLV1.unity
-    guid: cc29d4eff50d7c44fb67435b345378e0
+    path: Assets/Scenes/Levels/Level_1.unity
+    guid: ebb409abc84603b4ab5ff8eb4f59c5bf
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level_2.unity
+    guid: 741a64c10ebaa054e9d93fbfa5bf972e
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level_3.unity
+    guid: 8704d756f01b01d4bacd44c394a9fc21
   m_configObjects: {}
