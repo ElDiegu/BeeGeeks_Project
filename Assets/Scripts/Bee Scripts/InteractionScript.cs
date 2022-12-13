@@ -92,6 +92,8 @@ public class InteractionScript : MonoBehaviour
                     honeyLevel = 10;
                 }
 
+                gameObject.GetComponentInChildren<ParticleSystem>().Play();
+
                 gameObject.GetComponent<BeeUpdateUI>().UpdateHoneySprite(honeyLevel);
 
                 Destroy(other.gameObject);
