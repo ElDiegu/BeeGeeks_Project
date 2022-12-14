@@ -9,13 +9,21 @@ public class InteractionScript : MonoBehaviour
     public bool interacting;
     public int honeyLevel = 0;
     public int lives = 4;
-    
     public Transform pickPosition;
+    public AudioClip boxSound;
+    public AudioClip honeySound;
+    public AudioClip damageSound;
+    public Material beeMaterial;
+
+    private AudioSource _audioSource;
 
     public void Awake()
     {
         gameObject.GetComponent<BeeUpdateUI>().UpdateHoneySprite(honeyLevel);
         gameObject.GetComponent<BeeUpdateUI>().UpdateLivesSprite(lives);
+
+        _audioSource = GetComponent<AudioSource>();
+        _audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
     }
 
     #region Pick Interaction
@@ -49,13 +57,17 @@ public class InteractionScript : MonoBehaviour
     public void Pick(GameObject interactingObject)
     {
         if (honeyLevel < 2) return;
+
         honeyLevel -= 2;
         gameObject.GetComponent<BeeUpdateUI>().UpdateHoneySprite(honeyLevel);
         interactingObject.GetComponent<Rigidbody>().useGravity = false;
-        //interactingObject.transform.parent = pickPosition;
         interactingObject.transform.position = pickPosition.position;
         pickedItem = interactingObject;
         picking = true;
+
+        //_audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
+        _audioSource.clip = boxSound;
+        _audioSource.Play();
     }
 
     public void Update()
@@ -82,6 +94,9 @@ public class InteractionScript : MonoBehaviour
             }
             else
             {
+                //_audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
+                _audioSource.clip = honeySound;
+                _audioSource.Play();
 
                 if (honeyLevel+2 <= 10)
                 {
@@ -92,6 +107,8 @@ public class InteractionScript : MonoBehaviour
                     honeyLevel = 10;
                 }
 
+                gameObject.GetComponentInChildren<ParticleSystem>().Play();
+
                 gameObject.GetComponent<BeeUpdateUI>().UpdateHoneySprite(honeyLevel);
 
                 Destroy(other.gameObject);
@@ -100,11 +117,37 @@ public class InteractionScript : MonoBehaviour
         }
         else if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
+            StartCoroutine(ChangeColorCoroutine());
             lives--;
             gameObject.GetComponent<BeeUpdateUI>().UpdateLivesSprite(lives);
 
             other.gameObject.GetComponent<WanderingAI>().Touched();
         }
+
+    }
+
+    IEnumerator ChangeColorCoroutine()
+    {
+        //_audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
+        _audioSource.clip = damageSound;
+        _audioSource.Play();
+        beeMaterial.SetColor("_BaseColor", new Color(1, 0, 0, 1));
+        yield return new WaitForSeconds(0.2f);
+        beeMaterial.SetColor("_BaseColor", new Color(1, 1, 1, 1));
+        yield return new WaitForSeconds(0.2f);
+
+        _audioSource.clip = damageSound;
+        _audioSource.Play();
+        beeMaterial.SetColor("_BaseColor", new Color(1, 0, 0, 1));
+        yield return new WaitForSeconds(0.2f);
+        beeMaterial.SetColor("_BaseColor", new Color(1, 1, 1, 1));
+        yield return new WaitForSeconds(0.2f);
+
+        _audioSource.clip = damageSound;
+        _audioSource.Play();
+        beeMaterial.SetColor("_BaseColor", new Color(1, 0, 0, 1));
+        yield return new WaitForSeconds(0.2f);
+        beeMaterial.SetColor("_BaseColor", new Color(1, 1, 1, 1));
 
     }
 }

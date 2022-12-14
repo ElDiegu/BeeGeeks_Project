@@ -7,9 +7,20 @@ public class ShootingScript : MonoBehaviour
     public GameObject projectilePrefab;
     public Transform shottingPoint;
     public float shootingForce;
+    public AudioClip shootingSound;
+
+    private AudioSource _audioSource;
+
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+        _audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
+    }
+
     public void Shoot()
     {
         if (gameObject.GetComponent<InteractionScript>().honeyLevel <= 0) return;
+
         gameObject.GetComponent<InteractionScript>().honeyLevel--;
         gameObject.GetComponent<BeeUpdateUI>().UpdateHoneySprite(gameObject.GetComponent<InteractionScript>().honeyLevel);
 
@@ -17,6 +28,10 @@ public class ShootingScript : MonoBehaviour
 
         GameObject projectile = Instantiate(projectilePrefab, shottingPoint.transform.position, Quaternion.identity);
         projectile.GetComponent<Rigidbody>().velocity = dir.normalized * shootingForce;
+
+        _audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
+        _audioSource.clip = shootingSound;
+        _audioSource.Play();
     }
 
     public void Update()

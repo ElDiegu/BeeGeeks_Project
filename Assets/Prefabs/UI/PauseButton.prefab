@@ -848,6 +848,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pauseMenu: {fileID: 2868247018643456042}
   _HUD: {fileID: 0}
+  _playTheme: {fileID: 8300000, guid: bf9045fd3294d1540bae5aa36a5238ae, type: 3}
+  _menuTheme: {fileID: 8300000, guid: c026d0899dba3b94b8f1c3f5c6a70de8, type: 3}
 --- !u!1 &3415476207770785218
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,6 +998,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pauseMenu: {fileID: 2868247018643456042}
   _HUD: {fileID: 0}
+  _playTheme: {fileID: 8300000, guid: bf9045fd3294d1540bae5aa36a5238ae, type: 3}
+  _menuTheme: {fileID: 8300000, guid: c026d0899dba3b94b8f1c3f5c6a70de8, type: 3}
 --- !u!1 &3415476207855628010
 GameObject:
   m_ObjectHideFlags: 0
