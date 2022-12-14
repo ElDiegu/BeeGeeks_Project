@@ -65,7 +65,7 @@ public class InteractionScript : MonoBehaviour
         pickedItem = interactingObject;
         picking = true;
 
-        //_audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
+        _audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
         _audioSource.clip = boxSound;
         _audioSource.Play();
     }
@@ -94,7 +94,7 @@ public class InteractionScript : MonoBehaviour
             }
             else
             {
-                //_audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
+                _audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
                 _audioSource.clip = honeySound;
                 _audioSource.Play();
 
@@ -128,7 +128,7 @@ public class InteractionScript : MonoBehaviour
 
     IEnumerator ChangeColorCoroutine()
     {
-        //_audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
+        _audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
         _audioSource.clip = damageSound;
         _audioSource.Play();
         beeMaterial.SetColor("_BaseColor", new Color(1, 0, 0, 1));
