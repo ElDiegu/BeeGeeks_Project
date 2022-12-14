@@ -9,12 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 9dc9b27fad141a54f92b05d4128bb8d8
   - enabled: 1
-    path: Assets/Scenes/Levels/Deprecated/LevelExample.unity
-    guid: 22865e6378df63644bdc630f96d23220
-  - enabled: 1
-    path: Assets/Scenes/ExitScreen.unity
-    guid: fe61dd2fd5adb0d489b2f0b5a638a4e9
-  - enabled: 1
     path: Assets/Scenes/Levels/Level_1.unity
     guid: ebb409abc84603b4ab5ff8eb4f59c5bf
   - enabled: 1

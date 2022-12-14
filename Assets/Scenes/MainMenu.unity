@@ -2537,8 +2537,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1759951326}
-        m_TargetAssemblyTypeName: SwitchScreen, Assembly-CSharp
-        m_MethodName: GoToScreen
+        m_TargetAssemblyTypeName: ExitGame, Assembly-CSharp
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2595,10 +2595,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1759951321}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2304dff7302c2dc4e9366c7d7cee8312, type: 3}
+  m_Script: {fileID: 11500000, guid: 37679733dcc95834b84eaead52839541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextScreenName: ExitScreen
 --- !u!1001 &1857701370
 PrefabInstance:
   m_ObjectHideFlags: 0
