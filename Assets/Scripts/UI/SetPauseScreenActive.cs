@@ -1,9 +1,25 @@
+using System;
 using UnityEngine;
 
 public class SetPauseScreenActive : MonoBehaviour
 {
     [SerializeField] private GameObject _pauseMenu;
     [SerializeField] private GameObject _HUD;
+
+    [SerializeField] private AudioClip _playTheme;
+    [SerializeField] private AudioClip _menuTheme;
+    
+   
+    private AudioSource _audioSource;
+
+
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+        _audioSource.volume = FindObjectOfType<SoundManager>().GetMusicVolume();
+        _audioSource.clip = _playTheme;
+        _audioSource.Play();
+    }
 
     void Update()
     {
@@ -17,6 +33,10 @@ public class SetPauseScreenActive : MonoBehaviour
     {
         GameManager.Instance.GamePaused = true;
 
+        _audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
+        _audioSource.clip = _menuTheme;
+        _audioSource.Play();
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
@@ -24,11 +44,16 @@ public class SetPauseScreenActive : MonoBehaviour
 
         _pauseMenu.SetActive(true);
         _HUD.SetActive(false);
+
     }
 
     public void UnpauseGame()
     {
         GameManager.Instance.GamePaused = false;
+
+        //_audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
+        _audioSource.clip = _playTheme;
+        _audioSource.Play();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -37,5 +62,6 @@ public class SetPauseScreenActive : MonoBehaviour
 
         _pauseMenu.SetActive(false);
         _HUD.SetActive(true);
+
     }
 }

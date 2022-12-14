@@ -113,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
   speed: 0
+  enemyDeathSound: {fileID: 8300000, guid: 0e06e62c5074df546afc0340e62b410e, type: 3}
 --- !u!54 &4475886864664521061
 Rigidbody:
   m_ObjectHideFlags: 0

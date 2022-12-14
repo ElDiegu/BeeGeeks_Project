@@ -17,12 +17,18 @@ public class ThirdPersonMovement : MonoBehaviour
     public float jumpingHeight = 3.0f;
     public float verticalVelocity = 0.0f;
     float gravity = 9.81f;
+    public AudioClip jumpingSound;
     #endregion
+
+    private AudioSource _audioSource;
 
     public void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        _audioSource = GetComponent<AudioSource>();
+        //_audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
     }
 
     void Update()
@@ -50,6 +56,10 @@ public class ThirdPersonMovement : MonoBehaviour
 
             if (Input.GetKey(KeyCode.Space) && controller.isGrounded && verticalVelocity <= 0)
             {
+                //_audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
+                _audioSource.clip = jumpingSound;
+                _audioSource.Play();
+
                 verticalVelocity += Mathf.Sqrt(jumpingHeight * gravity);
             }
             else if (Input.GetKey(KeyCode.Space) && verticalVelocity <= 0)
