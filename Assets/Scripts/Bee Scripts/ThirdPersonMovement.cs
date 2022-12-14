@@ -28,7 +28,10 @@ public class ThirdPersonMovement : MonoBehaviour
         Cursor.visible = false;
 
         _audioSource = GetComponent<AudioSource>();
-        //_audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
+        _audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
+
+        if(FindObjectOfType<MenuSound>() != null)
+            Destroy(FindObjectOfType<MenuSound>().gameObject);
     }
 
     void Update()
@@ -56,7 +59,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
             if (Input.GetKey(KeyCode.Space) && controller.isGrounded && verticalVelocity <= 0)
             {
-                //_audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
+                _audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
                 _audioSource.clip = jumpingSound;
                 _audioSource.Play();
 

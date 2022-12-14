@@ -23,7 +23,7 @@ public class InteractionScript : MonoBehaviour
         gameObject.GetComponent<BeeUpdateUI>().UpdateLivesSprite(lives);
 
         _audioSource = GetComponent<AudioSource>();
-        //_audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
+        _audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
     }
 
     #region Pick Interaction

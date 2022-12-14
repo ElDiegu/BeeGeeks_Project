@@ -8,6 +8,7 @@ public class MenuSound : MonoBehaviour
 
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
         _audioSource = GetComponent<AudioSource>();
         _audioSource.volume = FindObjectOfType<SoundManager>().GetMusicVolume();
     }

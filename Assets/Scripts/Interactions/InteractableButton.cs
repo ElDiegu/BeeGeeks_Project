@@ -12,7 +12,7 @@ public class InteractableButton : MonoBehaviour
     private void Awake()
     {
         _audioSource = GetComponent<AudioSource>();
-        //_audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
+        _audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -21,7 +21,7 @@ public class InteractableButton : MonoBehaviour
 
         door.GetComponent<DoorScript>().OpenDoor();
 
-        //_audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
+        _audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
         _audioSource.clip = buttonSound;
         _audioSource.Play();
     }

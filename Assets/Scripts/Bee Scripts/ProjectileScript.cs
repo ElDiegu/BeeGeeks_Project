@@ -14,7 +14,7 @@ public class ProjectileScript : MonoBehaviour
     {
         StartCoroutine(Destruction());
         _audioSource = GetComponent<AudioSource>();
-        //_audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
+        _audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
     }
 
     IEnumerator Destruction()
@@ -30,7 +30,7 @@ public class ProjectileScript : MonoBehaviour
         {
             Destroy(collision.gameObject);
 
-            //_audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
+            _audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
             _audioSource.clip = enemyDeathSound;
             _audioSource.Play();
         }
