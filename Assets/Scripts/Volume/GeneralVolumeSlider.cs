@@ -17,7 +17,6 @@ public class GeneralVolumeSlider : MonoBehaviour
 
     private void ValueChangeCheck()
     {
-        Debug.Log("is this happening");
         FindObjectOfType<SoundManager>().SetGeneralVolume(_slider.value);
     }
 }

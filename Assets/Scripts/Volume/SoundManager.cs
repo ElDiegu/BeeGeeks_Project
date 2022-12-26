@@ -5,6 +5,9 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     private float _generalVolume = 1f;
+    private float _generalSlider = 1f;
+    private float _musicSlider = 1f;
+    private float _sfxSlider = 1f;
     private float _musicVolume = 1f;
     private float _sfxVolume = 1f;
 
@@ -16,19 +19,22 @@ public class SoundManager : MonoBehaviour
     #region Setters
     public void SetGeneralVolume(float volume)
     {
-        _generalVolume = volume;
-        _musicVolume *= _generalVolume;
-        _sfxVolume *= _generalVolume;
+        _generalSlider = volume;
+        _generalVolume = _generalSlider;
+        _musicVolume = _musicSlider * _generalSlider;
+        _sfxVolume = _sfxSlider * _generalSlider;
     }
 
     public void SetMusicVolume(float volume)
     {
-        _musicVolume = volume * _generalVolume;
+        _musicSlider = volume;
+        _musicVolume = volume * _generalSlider;
     }
 
     public void SetSfxVolume(float volume)
     {
-        _sfxVolume = volume * _generalVolume;
+        _sfxSlider = volume;
+        _sfxVolume = volume * _generalSlider;
     }
 
     #endregion
@@ -37,7 +43,7 @@ public class SoundManager : MonoBehaviour
 
     public float GetGeneralVolume()
     {
-        return _generalVolume;
+        return _generalSlider;
     }
 
     public float GetSfxVolume()

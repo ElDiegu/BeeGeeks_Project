@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class InteractionScript : MonoBehaviour
 {
@@ -117,12 +118,25 @@ public class InteractionScript : MonoBehaviour
         }
         else if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            StartCoroutine(ChangeColorCoroutine());
+            
             lives--;
             gameObject.GetComponent<BeeUpdateUI>().UpdateLivesSprite(lives);
 
+            if (lives == 0)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                return;
+            }
+
             other.gameObject.GetComponent<WanderingAI>().Touched();
+
+            StartCoroutine(ChangeColorCoroutine());
+
+        } else if (other.gameObject.layer == LayerMask.NameToLayer("Water"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+        Debug.Log("Here");
 
     }
 
