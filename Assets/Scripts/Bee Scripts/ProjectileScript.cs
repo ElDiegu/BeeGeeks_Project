@@ -28,6 +28,7 @@ public class ProjectileScript : MonoBehaviour
         Debug.Log("collisiones");
         if (collision.gameObject.tag == "Enemy")
         {
+            GameManager.Instance.killEnemy();
             Destroy(collision.gameObject);
 
             _audioSource.volume = FindObjectOfType<SoundManager>().GetSfxVolume();
